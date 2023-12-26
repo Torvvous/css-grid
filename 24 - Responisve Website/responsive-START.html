@@ -102,6 +102,19 @@
   </div>
 
   <script>
+    const navButton = document.querySelector('button[aria-expanded]');
+
+    function toggleNav({ target }) {
+
+      /* <false> here is just the fallback in case the received string is not "true" 
+        In this case operator OR returns the last operand, which is false in this case */
+
+      const expanded = target.getAttribute('aria-expanded') === 'true' || false;
+      navButton.setAttribute('aria-expanded', !expanded);
+      
+    }
+
+    navButton.addEventListener('click', toggleNav);
   </script>
   
 </body>
